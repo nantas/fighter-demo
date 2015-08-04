@@ -1,0 +1,216 @@
+[
+  {
+    "__type__": "Fire.Scene",
+    "_name": "",
+    "_objFlags": 0,
+    "_rawFiles": null,
+    "scene": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "Runtime.SceneWrapper",
+    "content": [
+      {
+        "c": [
+          {
+            "w": {
+              "__id__": 1
+            },
+            "c": [
+              {
+                "w": {
+                  "__id__": 2
+                }
+              }
+            ]
+          },
+          {
+            "w": {
+              "__id__": 3
+            },
+            "c": [
+              {
+                "w": {
+                  "__id__": 4
+                },
+                "t": {
+                  "idleTexture": {
+                    "__uuid__": "31001ada-61f2-4815-a4f9-317a3d4703ed"
+                  },
+                  "atkTexture": {
+                    "__uuid__": "9bf94299-c6b5-4012-837b-eaeac58aabf1"
+                  }
+                },
+                "m": "d447fGdAC9J9IVvsX8QqEeH"
+              }
+            ]
+          },
+          {
+            "w": {
+              "__id__": 5
+            },
+            "t": {
+              "fxAtlasAsset": {
+                "__uuid__": "6bfd9ef7-252c-4fb6-a17a-31cd70c031c3"
+              }
+            },
+            "m": "614263AlCBKqKbCvMD2ExRn"
+          }
+        ],
+        "uuid": "3e728567-28f6-4a04-99b6-2797dc99f49d"
+      },
+      {
+        "__type__": "Runtime.NodeWrapper",
+        "_name": "bgLayer",
+        "_objFlags": 0,
+        "_id": "94b44t/0KVIT61o9Rr+Zzmp",
+        "_position": [
+          320,
+          240
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          0,
+          0
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0,
+          0
+        ]
+      },
+      {
+        "__type__": "Runtime.SpriteWrapper",
+        "_name": "bg",
+        "_objFlags": 0,
+        "_id": "c10a7ykLQVGzIZ1dOfhlilk",
+        "_position": [
+          0,
+          48.75
+        ],
+        "_scale": [
+          1.25,
+          1.25
+        ],
+        "_rotation": 0,
+        "_size": [
+          512,
+          512
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0.5,
+          0.5
+        ],
+        "_texture": {
+          "__uuid__": "d9349caa-d732-4f08-bfe7-a22844b4eec3"
+        }
+      },
+      {
+        "__type__": "Runtime.NodeWrapper",
+        "_name": "fightLayer",
+        "_objFlags": 0,
+        "_id": "f2c1ehT6+ZOrIpTuQ0dgOGq",
+        "_position": [
+          320,
+          240
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          0,
+          0
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0,
+          0
+        ]
+      },
+      {
+        "__type__": "Runtime.SpriteWrapper",
+        "_name": "enemy1",
+        "_objFlags": 0,
+        "_id": "290b7T2FuxKzJE7eeVmaVno",
+        "_position": [
+          99.375,
+          0
+        ],
+        "_scale": [
+          0.6,
+          0.6
+        ],
+        "_rotation": 0,
+        "_size": [
+          300,
+          300
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0.5,
+          0.5
+        ],
+        "_texture": {
+          "__uuid__": "31001ada-61f2-4815-a4f9-317a3d4703ed"
+        }
+      },
+      {
+        "__type__": "Runtime.NodeWrapper",
+        "_name": "fxLayer",
+        "_objFlags": 0,
+        "_id": "4cbc59roDZOXJjRLutosEe7",
+        "_position": [
+          320,
+          240
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          0,
+          0
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0,
+          0
+        ]
+      }
+    ]
+  }
+]
