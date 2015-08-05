@@ -31,7 +31,7 @@ var animData = [
         name: "hit_0",
         count: 4,
         startIdx: 1,
-        delay: 0.1
+        delay: 0.05
     },
     {
         name: "coin_gather_",
@@ -82,9 +82,6 @@ var FXManager = Fire.Class({
         if (this.fxAtlasAsset) {
             cc.spriteFrameCache.addSpriteFrames(this.fxAtlasAsset);
         }
-        setInterval(function() {
-            this.testFX();
-        }.bind(this), 200);
     },
     _spawnFX: function(parent, type) {
         var fx;
@@ -98,8 +95,21 @@ var FXManager = Fire.Class({
             return fx;
         }
     },
-    playFX: function(pos, type) {
+    playFX: function(pos, type, scaleX) {
         var fx = this._spawnFX(this, type);
+        
+        if (type === FXType.Hit) {
+            fx.setScale(0.5);
+        } else {
+            fx.setScale(1);
+        }
+
+        if (scaleX > 0) {
+            scaleX = 1;
+        } else {
+            scaleX = -1;
+        }
+        fx.setScaleX(scaleX);
         fx.setPosition(pos);
     }
 });

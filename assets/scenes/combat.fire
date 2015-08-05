@@ -34,7 +34,43 @@
                 "w": {
                   "__id__": 4
                 },
+                "c": [
+                  {
+                    "w": {
+                      "__id__": 5
+                    }
+                  }
+                ],
                 "t": {
+                  "moveForwardDuration": 0.3,
+                  "moveBackwardDuration": 0.5,
+                  "attackFreezeDuration": 0.35,
+                  "hurtFX": 1,
+                  "idleTexture": {
+                    "__uuid__": "b69fc710-6e70-489f-b657-ed279264be21"
+                  },
+                  "atkTexture": {
+                    "__uuid__": "d2d8a1e7-3262-40a0-91e0-59341dfd5000"
+                  }
+                },
+                "m": "d447fGdAC9J9IVvsX8QqEeH"
+              },
+              {
+                "w": {
+                  "__id__": 6
+                },
+                "c": [
+                  {
+                    "w": {
+                      "__id__": 7
+                    }
+                  }
+                ],
+                "t": {
+                  "moveForwardDuration": 0.3,
+                  "moveBackwardDuration": 0.5,
+                  "attackFreezeDuration": 0.2,
+                  "hurtFX": 0,
                   "idleTexture": {
                     "__uuid__": "31001ada-61f2-4815-a4f9-317a3d4703ed"
                   },
@@ -44,11 +80,13 @@
                 },
                 "m": "d447fGdAC9J9IVvsX8QqEeH"
               }
-            ]
+            ],
+            "t": {},
+            "m": "5e1eerr6JZIZIl2FzoR6XBb"
           },
           {
             "w": {
-              "__id__": 5
+              "__id__": 8
             },
             "t": {
               "fxAtlasAsset": {
@@ -152,12 +190,76 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
+        "_name": "player1",
+        "_objFlags": 0,
+        "_id": "41c877rSjtP3pFiu5erBKaR",
+        "_position": [
+          -206.00166699928388,
+          -5.684341886080802e-14
+        ],
+        "_scale": [
+          -0.6,
+          0.6
+        ],
+        "_rotation": 0,
+        "_size": [
+          220,
+          256
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0.5,
+          0.5
+        ],
+        "_texture": {
+          "__uuid__": "b69fc710-6e70-489f-b657-ed279264be21"
+        }
+      },
+      {
+        "__type__": "Runtime.SpriteWrapper",
+        "_name": "flash",
+        "_objFlags": 0,
+        "_id": "f1517nNfV5IgL4/96L7H36z",
+        "_position": [
+          110,
+          128
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          220,
+          256
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0.5,
+          0.5
+        ],
+        "_texture": {
+          "__uuid__": "10cd643f-f230-4faf-afa6-c2caa303895b"
+        }
+      },
+      {
+        "__type__": "Runtime.SpriteWrapper",
         "_name": "enemy1",
         "_objFlags": 0,
         "_id": "290b7T2FuxKzJE7eeVmaVno",
         "_position": [
-          99.375,
-          0
+          175.7000883392226,
+          -5.684341886080802e-14
         ],
         "_scale": [
           0.6,
@@ -180,6 +282,38 @@
         ],
         "_texture": {
           "__uuid__": "31001ada-61f2-4815-a4f9-317a3d4703ed"
+        }
+      },
+      {
+        "__type__": "Runtime.SpriteWrapper",
+        "_name": "flash",
+        "_objFlags": 0,
+        "_id": "c471fnAbvtPMopA6dMvjPnR",
+        "_position": [
+          150,
+          150
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          300,
+          300
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0.5,
+          0.5
+        ],
+        "_texture": {
+          "__uuid__": "0e3c8221-8592-491e-ad0a-76695ce90d9d"
         }
       },
       {
