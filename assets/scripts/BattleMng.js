@@ -5,6 +5,9 @@ function getRandomInt(min, max) {
 var BattleMng = Fire.Class({
     extends: Fire.Behavior,
     onLoad: function() {
+        // uimanager
+        this.uiManager = Fire.engine.getCurrentSceneN().getChildByName('uiLayer');
+        // fighters
         this.fighters = this.getChildren();
         this.players = [];
         this.enemies = [];
@@ -49,6 +52,7 @@ var BattleMng = Fire.Class({
             }
             if (target) {
                 attacker.moveToAttack(target);
+                this.uiManager.playPop(this.fighters.indexOf(attacker));
             } else {
                 attacker.canMove = true;
             }

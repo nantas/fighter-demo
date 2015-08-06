@@ -34,25 +34,31 @@ var Fighter = Fire.Class({
         // actions
         this.actionMoveForward = null;
         this.actionMoveBackward = null;
-        this.actionHurt = null;
-        this.actionDie = null;
+        this.actionIdle = cc.repeatForever(cc.sequence(cc.scaleTo(1, this.getScaleX(), 0.55), cc.scaleTo(1, this.getScaleX(), 0.6))) ;
         // position
         this.targetPos = cc.p(0,0);
         this.selfPos = cc.p(this.x, this.y);
         this.actionMoveBackward = cc.moveTo(this.moveBackwardDuration, this.selfPos).easing(cc.easeCubicActionOut());
+        this.idle();
+    },
+
+    idle: function() {
+        this.runAction(this.actionIdle);
     },
 
     moveToAttack: function(target) {
+        this.stopAction(this.actionIdle);
         this.canMove = false;
         this.setLocalZOrder(this.orgiZ + 0.5);
         this._assignTarget(target, this.attackOffset);
         var callback = cc.callFunc(this._playAttack, this);
-        var fx = this.fxManager.playFX(cc.p(this.x, this.y), FXManager.FXType.Dust, this.getScaleX(), this.getParent());
-        fx.setLocalZOrder(this.getLocalZOrder() - 0.5);
+        var fx = this.fxManager.playFX(cc.p(this.x, this.y + 50), FXManager.FXType.Dust, this.getScaleX(), this.getParent());
+        fx.setLocalZOrder(this.origZ - 0.5);
         this.runAction(cc.sequence(this.actionMoveForward, callback));
     },
 
     hurt: function(offset) {
+        this.stopAction(this.actionIdle);
         this.canMove = false;
         var move1 = cc.moveBy(this.attackFreezeDuration, cc.p(offset,0)).easing(cc.easeElasticInOut(0.2));
         var move2 = cc.moveBy(this.attackFreezeDuration, cc.p(-offset,0)).easing(cc.easeElasticInOut(0.2));
@@ -61,7 +67,7 @@ var Fighter = Fire.Class({
         var flash1 = cc.fadeIn(this.attackFreezeDuration/2);
         var flash2 = cc.fadeOut(this.attackFreezeDuration/2);
         var seq2 = cc.sequence(flash1, flash2);
-        this.fxManager.playFX(cc.p(this.x+offset, this.y + 30), FXManager.FXType.Blood, this.getScaleX());
+        this.fxManager.playFX(cc.p(this.x+offset, this.y + 80), FXManager.FXType.Blood, this.getScaleX());
         this.runAction(seq1);
         this.flash.runAction(seq2);
     },
@@ -107,9 +113,11 @@ var Fighter = Fire.Class({
     _onAtkEnd: function() {
         this.setLocalZOrder(this.origZ);
         this.canMove = true;
+        this.idle();
     },
 
     _onHurtEnd: function() {
         this.canMove = true;
+        this.idle();
     }
 });

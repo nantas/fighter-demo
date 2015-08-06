@@ -210,7 +210,9 @@
                   "__id__": 20
                 }
               }
-            ]
+            ],
+            "t": {},
+            "m": "5853cbzYTNCAo3RbX4Qepgh"
           }
         ],
         "uuid": "3e728567-28f6-4a04-99b6-2797dc99f49d"
@@ -311,8 +313,8 @@
         "_objFlags": 0,
         "_id": "2b367iET5NJ7LX5L6SVqEmn",
         "_position": [
-          125.51236749116606,
-          -5.684341886080802e-14
+          125.51236749116617,
+          -76.53700005464037
         ],
         "_scale": [
           0.6,
@@ -331,7 +333,7 @@
         ],
         "_anchorPoint": [
           0.5,
-          0.5
+          0
         ],
         "_texture": {
           "__uuid__": "fd0f415b-57f3-4f2e-b3c7-8d34af21652f"
@@ -376,7 +378,7 @@
         "_id": "290b7T2FuxKzJE7eeVmaVno",
         "_position": [
           180.78842756183747,
-          -52.57950530035342
+          -129.1165053549938
         ],
         "_scale": [
           0.6,
@@ -395,7 +397,7 @@
         ],
         "_anchorPoint": [
           0.5,
-          0.5
+          0
         ],
         "_texture": {
           "__uuid__": "31001ada-61f2-4815-a4f9-317a3d4703ed"
@@ -439,8 +441,8 @@
         "_objFlags": 0,
         "_id": "5416b9GzJlK3YThwsml+yv6",
         "_position": [
-          -208.62190812720848,
-          -5.684341886080802e-14
+          -208.62190812720826,
+          -78.23782227807683
         ],
         "_scale": [
           -0.6,
@@ -459,7 +461,7 @@
         ],
         "_anchorPoint": [
           0.5,
-          0.5
+          0
         ],
         "_texture": {
           "__uuid__": "5f6da202-0967-45b3-a390-9f18ba229b3f"
@@ -503,8 +505,8 @@
         "_objFlags": 0,
         "_id": "b36d9M+dsBORIeO21ewt+C0",
         "_position": [
-          -147.5618374558304,
-          -42.40282685512375
+          -147.5618374558303,
+          -120.64064913320055
         ],
         "_scale": [
           -0.6,
@@ -523,7 +525,7 @@
         ],
         "_anchorPoint": [
           0.5,
-          0.5
+          0
         ],
         "_texture": {
           "__uuid__": "9b1438a1-18ac-4cc5-b721-02bbe30a231d"
@@ -567,8 +569,8 @@
         "_objFlags": 0,
         "_id": "41c877rSjtP3pFiu5erBKaR",
         "_position": [
-          -122.89212636324146,
-          -105.1590106007067
+          -122.89212636324135,
+          -183.39683287878353
         ],
         "_scale": [
           -0.6,
@@ -587,7 +589,7 @@
         ],
         "_anchorPoint": [
           0.5,
-          0.5
+          0
         ],
         "_texture": {
           "__uuid__": "b69fc710-6e70-489f-b657-ed279264be21"
@@ -685,7 +687,7 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
-        "_name": "043",
+        "_name": "enemy2",
         "_objFlags": 0,
         "_id": "8a98fHdFphOSJIXMw4t7P8f",
         "_position": [
@@ -717,7 +719,7 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
-        "_name": "038",
+        "_name": "enemy1",
         "_objFlags": 0,
         "_id": "a22c37u8dJDi4Yu9dV0t8YT",
         "_position": [
@@ -749,7 +751,7 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
-        "_name": "099",
+        "_name": "player3",
         "_objFlags": 0,
         "_id": "783b7p9cmlJT46BA8N5JBWz",
         "_position": [
@@ -781,7 +783,7 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
-        "_name": "125",
+        "_name": "player2",
         "_objFlags": 0,
         "_id": "913caQecH5LNpr+qN78Hx+r",
         "_position": [
@@ -813,7 +815,7 @@
       },
       {
         "__type__": "Runtime.SpriteWrapper",
-        "_name": "107",
+        "_name": "player1",
         "_objFlags": 0,
         "_id": "924eazmdW5MV49KXry2KF+8",
         "_position": [
