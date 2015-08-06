@@ -1,6 +1,9 @@
+var FXManager = require('FXManager');
 var UIMng = Fire.Class({
     extends: Fire.Behavior,
     onLoad: function() {
+        //fx manager
+        // this.fxManager = FXManager.instance;
         // fighters
         this.icons = this.getChildren();
         this.playerIcons = [];
@@ -17,6 +20,7 @@ var UIMng = Fire.Class({
         var icon = this.icons[index];
         if (icon) {
             icon.runAction(this.actionPop);
+            var fx = FXManager.instance.playFX(cc.p(icon.x, icon.y), FXManager.FXType.Flash, 1);
         }
     }
 });

@@ -27,7 +27,8 @@ var Fighter = Fire.Class({
         // z order
         this.origZ = this.getLocalZOrder();
         // fxmanager
-        this.fxManager = Fire.engine.getCurrentSceneN().getChildByName('fxLayer');
+        // this.fxManager = Fire.engine.getCurrentSceneN().getChildByName('fxLayer');
+        // this.fxManager = FXManager.instance;
         // flash sprite
         this.flash = this.getChildByName('flash');
         this.flash.setOpacity(0);
@@ -52,7 +53,7 @@ var Fighter = Fire.Class({
         this.setLocalZOrder(this.orgiZ + 0.5);
         this._assignTarget(target, this.attackOffset);
         var callback = cc.callFunc(this._playAttack, this);
-        var fx = this.fxManager.playFX(cc.p(this.x, this.y + 50), FXManager.FXType.Dust, this.getScaleX(), this.getParent());
+        var fx = FXManager.instance.playFX(cc.p(this.x, this.y + 50), FXManager.FXType.Dust, 1, this.getParent());
         fx.setLocalZOrder(this.origZ - 0.5);
         this.runAction(cc.sequence(this.actionMoveForward, callback));
     },
@@ -67,7 +68,7 @@ var Fighter = Fire.Class({
         var flash1 = cc.fadeIn(this.attackFreezeDuration/2);
         var flash2 = cc.fadeOut(this.attackFreezeDuration/2);
         var seq2 = cc.sequence(flash1, flash2);
-        this.fxManager.playFX(cc.p(this.x+offset, this.y + 80), FXManager.FXType.Blood, this.getScaleX());
+        FXManager.instance.playFX(cc.p(this.x+offset, this.y + 80), FXManager.FXType.Blood, this.getScaleX());
         this.runAction(seq1);
         this.flash.runAction(seq2);
     },
@@ -99,7 +100,7 @@ var Fighter = Fire.Class({
         this._showAtkPose();
         var callback = cc.callFunc(this._playHitFreeze, this);
         var seq = cc.sequence(cc.moveBy(this.attackFreezeDuration/4, cc.p(-offset, 0)), callback);
-        this.fxManager.playFX(cc.p(this.x - offset, 0), FXManager.FXType.Hit, this.targetFighter.getScaleX());
+        FXManager.instance.playFX(cc.p(this.x - offset, 0), FXManager.FXType.Hit, this.targetFighter.getScaleX());
         this.runAction(seq);
         this.targetFighter.hurt(-offset);
     },

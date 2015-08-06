@@ -32,6 +32,12 @@ var BattleMng = Fire.Class({
                 }
             }
         }, self);
+        cc.eventManager.addListener({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            onTouchBegan:function (touch, event) {
+                self.launchRandomAttack();
+            }
+        }, self);
     },
 
     launchRandomAttack: function() {

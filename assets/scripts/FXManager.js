@@ -37,7 +37,7 @@ var animData = [
         name: "coin_gather_",
         count: 3,
         startIdx: 1,
-        delay: 0.1
+        delay: 0.07
     }
 ];
 
@@ -52,7 +52,7 @@ var SimpleFX = cc.Sprite.extend({
         this.fxID = SimpleFX.fxID;
         parent.addChild(this);
         var nameStr = 'fx_' + FXType[type] + this.fxID;
-        Fire.log(nameStr);
+        // Fire.log(nameStr);
         this.setName(nameStr);
         var animAction = Animation.createAnimAction(getAnimInfo(type));
         var callback = cc.callFunc(this.onPlayEnd, this);
@@ -72,6 +72,10 @@ SimpleFX.fxID = 0;
 
 var FXManager = Fire.Class({
     extends: Fire.Behavior,
+    statics: {
+        FXType: FXType,
+        getAnimInfo: getAnimInfo
+    },
     properties: {
         fxAtlasAsset: {
             default: "",
@@ -82,6 +86,7 @@ var FXManager = Fire.Class({
         if (this.fxAtlasAsset) {
             cc.spriteFrameCache.addSpriteFrames(this.fxAtlasAsset);
         }
+        FXManager.instance = this;
     },
     _spawnFX: function(parent, type) {
         var fx;
@@ -115,8 +120,3 @@ var FXManager = Fire.Class({
         return fx;
     }
 });
-
-module.exports = {
-    FXType: FXType,
-    getAnimInfo: getAnimInfo
-};

@@ -173,18 +173,12 @@
             "w": {
               "__id__": 14
             },
-            "t": {
-              "fxAtlasAsset": {
-                "__uuid__": "6bfd9ef7-252c-4fb6-a17a-31cd70c031c3"
-              }
-            },
-            "m": "614263AlCBKqKbCvMD2ExRn"
-          },
-          {
-            "w": {
-              "__id__": 15
-            },
             "c": [
+              {
+                "w": {
+                  "__id__": 15
+                }
+              },
               {
                 "w": {
                   "__id__": 16
@@ -204,15 +198,21 @@
                 "w": {
                   "__id__": 19
                 }
-              },
-              {
-                "w": {
-                  "__id__": 20
-                }
               }
             ],
             "t": {},
             "m": "5853cbzYTNCAo3RbX4Qepgh"
+          },
+          {
+            "w": {
+              "__id__": 20
+            },
+            "t": {
+              "fxAtlasAsset": {
+                "__uuid__": "6bfd9ef7-252c-4fb6-a17a-31cd70c031c3"
+              }
+            },
+            "m": "614263AlCBKqKbCvMD2ExRn"
           }
         ],
         "uuid": "3e728567-28f6-4a04-99b6-2797dc99f49d"
@@ -629,35 +629,6 @@
       },
       {
         "__type__": "Runtime.NodeWrapper",
-        "_name": "fxLayer",
-        "_objFlags": 0,
-        "_id": "4cbc59roDZOXJjRLutosEe7",
-        "_position": [
-          320,
-          240
-        ],
-        "_scale": [
-          1,
-          1
-        ],
-        "_rotation": 0,
-        "_size": [
-          0,
-          0
-        ],
-        "_color": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "_anchorPoint": [
-          0,
-          0
-        ]
-      },
-      {
-        "__type__": "Runtime.NodeWrapper",
         "_name": "uiLayer",
         "_objFlags": 0,
         "_id": "1e3bePwtZBHtZZLZ/wnslHQ",
@@ -691,7 +662,7 @@
         "_objFlags": 0,
         "_id": "8a98fHdFphOSJIXMw4t7P8f",
         "_position": [
-          176.3957597173145,
+          180,
           140
         ],
         "_scale": [
@@ -723,7 +694,7 @@
         "_objFlags": 0,
         "_id": "a22c37u8dJDi4Yu9dV0t8YT",
         "_position": [
-          237.45583038869233,
+          240,
           140
         ],
         "_scale": [
@@ -755,7 +726,7 @@
         "_objFlags": 0,
         "_id": "783b7p9cmlJT46BA8N5JBWz",
         "_position": [
-          -257.8091872791519,
+          -260,
           140
         ],
         "_scale": [
@@ -787,7 +758,7 @@
         "_objFlags": 0,
         "_id": "913caQecH5LNpr+qN78Hx+r",
         "_position": [
-          -203.5335689045936,
+          -200,
           140
         ],
         "_scale": [
@@ -819,7 +790,7 @@
         "_objFlags": 0,
         "_id": "924eazmdW5MV49KXry2KF+8",
         "_position": [
-          -137.38515901060066,
+          -140,
           140
         ],
         "_scale": [
@@ -844,6 +815,35 @@
         "_texture": {
           "__uuid__": "1491a07e-eff9-4832-9d44-46d2a21bd78b"
         }
+      },
+      {
+        "__type__": "Runtime.NodeWrapper",
+        "_name": "fxLayer",
+        "_objFlags": 0,
+        "_id": "4cbc59roDZOXJjRLutosEe7",
+        "_position": [
+          320,
+          240
+        ],
+        "_scale": [
+          1,
+          1
+        ],
+        "_rotation": 0,
+        "_size": [
+          0,
+          0
+        ],
+        "_color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "_anchorPoint": [
+          0,
+          0
+        ]
       }
     ]
   }
