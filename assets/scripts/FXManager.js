@@ -13,7 +13,7 @@ var animData = [
         name: "blood_splash_",
         count: 3,
         startIdx: 1,
-        delay: 0.1
+        delay: 0.05
     },
     {
         name: "boom_0",
@@ -95,9 +95,10 @@ var FXManager = Fire.Class({
             return fx;
         }
     },
-    playFX: function(pos, type, scaleX) {
-        var fx = this._spawnFX(this, type);
-        
+    playFX: function(pos, type, scaleX, parent) {
+        var p = parent || this;
+        var fx = this._spawnFX(p, type );
+
         if (type === FXType.Hit) {
             fx.setScale(0.5);
         } else {
@@ -111,6 +112,7 @@ var FXManager = Fire.Class({
         }
         fx.setScaleX(scaleX);
         fx.setPosition(pos);
+        return fx;
     }
 });
 

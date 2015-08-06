@@ -1,8 +1,21 @@
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var BattleMng = Fire.Class({
     extends: Fire.Behavior,
     onLoad: function() {
-        this.player1 = this.getChildByName('player1');
-        this.enemy1 = this.getChildByName('enemy1');
+        this.fighters = this.getChildren();
+        this.players = [];
+        this.enemies = [];
+        for (var i = 0; i < this.fighters.length; ++i) {
+            var fighter = this.fighters[i];
+            if (fighter.isEnemy) {
+                this.enemies.push(fighter);
+            } else {
+                this.players.push(fighter);
+            }
+        }
         this.registerInput();
     },
 
@@ -12,13 +25,33 @@ var BattleMng = Fire.Class({
             event: cc.EventListener.KEYBOARD,
             onKeyPressed:  function(keyCode, event){
                 if (keyCode === cc.KEY.space) {
-                    self.testAttack();
+                    self.launchRandomAttack();
                 }
             }
         }, self);
     },
 
-    testAttack: function() {
-        this.player1.moveToAttack(this.enemy1, -80);
+    launchRandomAttack: function() {
+        var availableFighters = this.fighters.filter(function(fighter) {
+            return fighter.canMove;
+        });
+        var count = availableFighters.length;
+        if (count > 1) {
+            var randIdx = getRandomInt(0, count);
+            var attacker = availableFighters[randIdx];
+            attacker.canMove = false;
+            var target = null;
+            for (var i = 0; i < availableFighters.length; ++i) {
+                if (attacker.isEnemy !== availableFighters[i].isEnemy) {
+                    target = availableFighters[i];
+                    break;
+                }
+            }
+            if (target) {
+                attacker.moveToAttack(target);
+            } else {
+                attacker.canMove = true;
+            }
+        }
     }
 });

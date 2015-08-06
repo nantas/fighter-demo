@@ -3,10 +3,12 @@ var FXManager = require('FXManager');
 var Fighter = Fire.Class({
     extends: Fire.Behavior,
     properties: {
+        isEnemy: false,
         moveForwardDuration: 0,
         moveBackwardDuration: 0,
         attackFreezeDuration: 0,
         hurtFX: 0,
+        attackOffset: 0,
         idleTexture: {
             default: null,
             url: Fire.Texture
@@ -18,12 +20,12 @@ var Fighter = Fire.Class({
     },
 
     onLoad: function() {
+        // engage in action
+        this.canMove = true;
         // target
         this.targetFighter = null;
         // z order
         this.origZ = this.getLocalZOrder();
-        // move to target offset
-        this.targetOffset = 0;
         // fxmanager
         this.fxManager = Fire.engine.getCurrentSceneN().getChildByName('fxLayer');
         // flash sprite
@@ -40,10 +42,35 @@ var Fighter = Fire.Class({
         this.actionMoveBackward = cc.moveTo(this.moveBackwardDuration, this.selfPos).easing(cc.easeCubicActionOut());
     },
 
+    moveToAttack: function(target) {
+        this.canMove = false;
+        this.setLocalZOrder(this.orgiZ + 0.5);
+        this._assignTarget(target, this.attackOffset);
+        var callback = cc.callFunc(this._playAttack, this);
+        var fx = this.fxManager.playFX(cc.p(this.x, this.y), FXManager.FXType.Dust, this.getScaleX(), this.getParent());
+        fx.setLocalZOrder(this.getLocalZOrder() - 0.5);
+        this.runAction(cc.sequence(this.actionMoveForward, callback));
+    },
+
+    hurt: function(offset) {
+        this.canMove = false;
+        var move1 = cc.moveBy(this.attackFreezeDuration, cc.p(offset,0)).easing(cc.easeElasticInOut(0.2));
+        var move2 = cc.moveBy(this.attackFreezeDuration, cc.p(-offset,0)).easing(cc.easeElasticInOut(0.2));
+        var callback = cc.callFunc(this._onHurtEnd, this);
+        var seq1 = cc.sequence(move1, move2, callback);
+        var flash1 = cc.fadeIn(this.attackFreezeDuration/2);
+        var flash2 = cc.fadeOut(this.attackFreezeDuration/2);
+        var seq2 = cc.sequence(flash1, flash2);
+        this.fxManager.playFX(cc.p(this.x+offset, this.y + 30), FXManager.FXType.Blood, this.getScaleX());
+        this.runAction(seq1);
+        this.flash.runAction(seq2);
+    },
+
     _assignTarget: function(target, offset) {
         this.targetFighter = target;
         this.targetPos = cc.p(target.x + offset, target.y);
-        this.actionMoveForward = cc.moveTo(this.moveForwardDuration, this.targetPos).easing(cc.easeCubicActionOut());
+        // this.actionMoveForward = cc.moveTo(this.moveForwardDuration, this.targetPos).easing(cc.easeCubicActionOut());
+        this.actionMoveForward = cc.jumpTo(this.moveForwardDuration, this.targetPos, 30, 1).easing(cc.easeCubicActionOut());
     },
 
     _showAtkPose: function() {
@@ -55,28 +82,20 @@ var Fighter = Fire.Class({
     },
 
     _playHitFreeze: function() {
-        var offset = this.targetOffset;
+        var offset = this.attackOffset;
         setTimeout(function() {
             this._moveBack();
         }.bind(this), this.attackFreezeDuration * 1000);
     },
 
     _playAttack: function() {
-        var offset = this.targetOffset;
+        var offset = this.attackOffset;
         this._showAtkPose();
         var callback = cc.callFunc(this._playHitFreeze, this);
         var seq = cc.sequence(cc.moveBy(this.attackFreezeDuration/4, cc.p(-offset, 0)), callback);
         this.fxManager.playFX(cc.p(this.x - offset, 0), FXManager.FXType.Hit, this.targetFighter.getScaleX());
         this.runAction(seq);
         this.targetFighter.hurt(-offset);
-    },
-
-    moveToAttack: function(target, offset) {
-        this.setLocalZOrder(100);
-        this.targetOffset = offset;
-        this._assignTarget(target, offset);
-        var callback = cc.callFunc(this._playAttack, this);
-        this.runAction(cc.sequence(this.actionMoveForward, callback));
     },
 
     _moveBack: function() {
@@ -86,19 +105,11 @@ var Fighter = Fire.Class({
     },
 
     _onAtkEnd: function() {
-        Fire.log("Attack end!");
         this.setLocalZOrder(this.origZ);
+        this.canMove = true;
     },
 
-    hurt: function(offset) {
-        var move1 = cc.moveBy(this.attackFreezeDuration, cc.p(offset,0)).easing(cc.easeElasticInOut(0.2));
-        var move2 = cc.moveBy(this.attackFreezeDuration, cc.p(-offset,0)).easing(cc.easeElasticInOut(0.2));
-        var seq1 = cc.sequence(move1, move2);
-        var flash1 = cc.fadeIn(this.attackFreezeDuration/2);
-        var flash2 = cc.fadeOut(this.attackFreezeDuration/2);
-        var seq2 = cc.sequence(flash1, flash2);
-        this.fxManager.playFX(cc.p(this.x+offset, this.y + 30), FXManager.FXType.Blood, this.getScaleX());
-        this.runAction(seq1);
-        this.flash.runAction(seq2);
+    _onHurtEnd: function() {
+        this.canMove = true;
     }
 });
