@@ -26,9 +26,6 @@ var Fighter = Fire.Class({
         this.targetFighter = null;
         // z order
         this.origZ = this.getLocalZOrder();
-        // fxmanager
-        // this.fxManager = Fire.engine.getCurrentSceneN().getChildByName('fxLayer');
-        // this.fxManager = FXManager.instance;
         // flash sprite
         this.flash = this.getChildByName('flash');
         this.flash.setOpacity(0);
@@ -53,7 +50,7 @@ var Fighter = Fire.Class({
         this.setLocalZOrder(this.orgiZ + 0.5);
         this._assignTarget(target, this.attackOffset);
         var callback = cc.callFunc(this._playAttack, this);
-        var fx = FXManager.instance.playFX(cc.p(this.x, this.y + 50), FXManager.FXType.Dust, 1, this.getParent());
+        var fx = FXManager.instance.playFX(cc.p(this.x, this.y + 50), FXManager.FXType.Dust, this.getScaleX(), this.getParent());
         fx.setLocalZOrder(this.origZ - 0.5);
         this.runAction(cc.sequence(this.actionMoveForward, callback));
     },
